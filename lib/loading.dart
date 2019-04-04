@@ -7,11 +7,20 @@ class Loading {
       const MethodChannel('loading');
 
   static Future<void> show([String text = ""]) async {
-    await _channel.invokeMethod('show', {
-      "text": text,
-    });
+    try {
+      await _channel.invokeMethod('show', {
+        "text": text,
+      });
+    } catch(e) {
+      //
+    }
+
   }
   static Future<void> hide() async {
-    await _channel.invokeMethod('hide');
+    try {
+      await _channel.invokeMethod('hide');
+    } catch(e) {
+      //
+    }
   }
 }
